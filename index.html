@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>Crochet Patterns Made Easy</title>
+  </head>
+  <body>
+    <!-- Start Of The Auto Patern -->
+    <input
+      id="numMagicRing"
+      type="number"
+      placeholder="Enter Amount of Magic Ring"
+      min="1"
+    />
+
+    <input
+      id="numRounds"
+      type="number"
+      placeholder="Enter Amount of Rounds"
+      min="1"
+    />
+
+    <button type="button" onclick="autoGeneratePattern()">Auto Generate</button>
+
+    <ul id="generatePaternOutput"></ul>
+    <!-- End Of The Auto Patern -->
+
+    <!-- Manual Adding Lines -->
+    <input
+      id="manualInputOfRounds"
+      type="number"
+      placeholder="Enter your manual round here"
+      value=""
+    />
+    <button type="button" onclick="manualGeneratePattern()">
+      Generate Line
+    </button>
+    <!-- End Of Manual Adding Lines -->
+
+    <script src="main.js"></script>
+  </body>
+</html>

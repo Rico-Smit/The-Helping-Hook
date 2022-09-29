@@ -1,0 +1,10 @@
+h1 {
+	text-align: center;
+}
+
+.magicRingForm,
+.roundsForm {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
