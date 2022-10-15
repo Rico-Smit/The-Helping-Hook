@@ -5,13 +5,13 @@ function autoGeneratePattern() {
   var numOfStitches = 1;
 
   var getUl = document.getElementById("generatePaternOutput");
+  getUl.textContent = "";
 
   if (numMagicRing < 1 || numRounds < 1 || Number.isNaN(numMagicRing)) {
     return alert("Please enter a value higher than 1 round or magic ring");
     exit;
   } else {
-    const rnd1 =
-      "Rnd 1: Magic ring " + numMagicRing + " [" + numMagicRing * rndNum + "]";
+    const rnd1 = `Rnd 1: Magic ring ${numMagicRing} [${numMagicRing * rndNum}]`;
 
     var creatingLiItem = document.createElement("li");
     creatingLiItem.textContent = rnd1;
@@ -19,7 +19,7 @@ function autoGeneratePattern() {
 
     rndNum++;
 
-    const rnd2 = "Rnd 2: Inc around [" + numMagicRing * rndNum + "]";
+    const rnd2 = `Rnd 2: Inc around [${numMagicRing * rndNum}]`;
 
     var creatingLiItem = document.createElement("li");
     creatingLiItem.textContent = rnd2;
@@ -30,24 +30,33 @@ function autoGeneratePattern() {
 
   if (rndNum >= 2) {
     for (let i = 3; i <= numRounds; i++) {
-      const appendRound =
-        "Rnd " +
-        rndNum +
-        ": " +
-        numOfStitches +
-        " Sc, Inc. Repeat x" +
-        numMagicRing +
-        " [" +
-        numMagicRing * rndNum +
-        "]";
+      const appendRound = `Rnd ${rndNum}: ${numOfStitches} Sc, Inc. Repeat x${numMagicRing} [${
+        numMagicRing * rndNum
+      }]`;
       var creatingLiItem = document.createElement("li");
       creatingLiItem.textContent = appendRound;
       getUl.appendChild(creatingLiItem);
       rndNum++;
       numOfStitches++;
     }
-  } else {
-    return alert("Something went wrong please try again");
-    exit;
   }
+  return [rndNum, numMagicRing];
+}
+
+function manualGeneratePattern() {
+  var rndNum = autoGeneratePattern();
+
+  var getMultiLineUl = document.getElementById("generatePaternOutput");
+  var endRound = parseInt(document.getElementById("multiLineAdding").value);
+
+  var creatingLiItem = document.createElement("li");
+  creatingLiItem.textContent = `Rnd ${rndNum[0]} - ${
+    rndNum[0] + (endRound - 1)
+  }: Sc Around [${rndNum[1] * (rndNum[0] - 1)}]`;
+  getMultiLineUl.appendChild(creatingLiItem);
+  rndNum++;
+}
+
+function addingDec() {
+  let rndNum = autoGeneratePattern();
 }
