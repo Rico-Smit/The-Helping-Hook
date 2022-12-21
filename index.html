@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    <title>Crochet Patterns Made Easy</title>
-  </head>
-  <body>
-    <!-- Start Of The Auto Patern -->
-    <input
-      id="numMagicRing"
-      type="number"
-      placeholder="Enter Amount of Magic Ring"
-      min="1"
-    />
 
-    <input
-      id="numRounds"
-      type="number"
-      placeholder="Enter Amount of Rounds"
-      min="1"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <title>Crochet Patterns Made Easy</title>
+</head>
+
+<body>
+  <div class="patternOutput">
+    <ul id="generatePaternOutput"></ul>
+  </div>
+
+  <div class="patternControlsPanel">
+    <input id="numMagicRing" type="number" placeholder="Enter Amount of Magic Ring" min="1" />
+
+    <input id="numRounds" type="number" placeholder="Enter Amount of Rounds" min="1" />
 
     <button type="button" onclick="autoGeneratePattern()">Auto Generate</button>
 
-    <ul id="generatePaternOutput"></ul>
-    <!-- End Of The Auto Patern -->
+    <input id="multiLineAdding" type="number" placeholder="How many rounds?" value="" />
 
-    <!-- Adding Multi Lines -->
-    <input
-      id="multiLineAdding"
-      type="number"
-      placeholder="How many rounds?"
-      value=""
-    />
-    <button type="button" onclick="manualGeneratePattern()">
-      Add Multipel Lines
-    </button>
+    <button type="button" onclick="generateMultipleLines()">Add Multipel Lines</button>
 
-    <button type="button" onclick="addingDec()">Dec to the End</button>
-    <!-- End Of Manual Adding Lines -->
+    <button type="button" onclick="decreaseToEnd()">Dec to the End</button>
+  </div>
 
-    <script src="main.js"></script>
-  </body>
+  <script src="main.js"></script>
+</body>
+
 </html>
