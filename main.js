@@ -86,9 +86,8 @@ function autoGeneratePattern() {
     rndNum++;
 
     for (let i = 3; i <= numRounds; i++) {
-      const appendRound = `Rnd ${rndNum}: ${numOfStitches} Sc, Inc. Repeat x${numMagicRing} [${
-        numMagicRing * rndNum
-      }]`;
+      const appendRound = `Rnd ${rndNum}: ${numOfStitches} Sc, Inc. Repeat x${numMagicRing} [${numMagicRing * rndNum
+        }]`;
 
       var creatingLiItem = document.createElement("li");
       creatingLiItem.textContent = appendRound;
@@ -111,9 +110,8 @@ function generateMultipleLines() {
 
   if (endRound >= 2) {
     var creatingLiItem = document.createElement("li");
-    creatingLiItem.textContent = `Rnd ${rndNum} - ${
-      rndNum + (endRound - 1)
-    }: Sc Around [${finalAmoutEndOfRnd}]`;
+    creatingLiItem.textContent = `Rnd ${rndNum} - ${rndNum + (endRound - 1)
+      }: Sc Around [${finalAmoutEndOfRnd}]`;
     getUl.appendChild(creatingLiItem);
   } else {
     document.getElementById("multiLineAdding").focus();
@@ -121,7 +119,6 @@ function generateMultipleLines() {
   }
 
   rndNum = rndNum + (endRound - 1);
-  alert(rndNum);
 }
 
 function decreaseToEnd() {
@@ -129,25 +126,25 @@ function decreaseToEnd() {
     return;
   }
 
-  getUl = document.getElementById("generatePaternOutput");
-  var decStitches = finalAmoutEndOfRnd - numMagicRing;
-  for (let i = numMagicRing; i <= decStitches + 1; i++) {
-    const appendRound = `Rnd ${rndNum + 1}: ${
-      numOfStitches - 1
-    } Sc, Dec. Repeat x${numMagicRing} [${decStitches}]`;
+  if (finalAmoutEndOfRnd > 0) {
+    getUl = document.getElementById("generatePaternOutput");
+    var decStitches = finalAmoutEndOfRnd - numMagicRing;
+    for (let i = numMagicRing; i <= decStitches + 1; i++) {
+      const appendRound = `Rnd ${rndNum + 1}: ${numOfStitches - 1
+        } Sc, Dec. Repeat x${numMagicRing} [${decStitches}]`;
 
-    var creatingLiItem = document.createElement("li");
-    creatingLiItem.textContent = appendRound;
-    getUl.appendChild(creatingLiItem);
+      var creatingLiItem = document.createElement("li");
+      creatingLiItem.textContent = appendRound;
+      getUl.appendChild(creatingLiItem);
 
-    rndNum++;
-    numOfStitches--;
-    decStitches -= numMagicRing;
+      rndNum++;
+      numOfStitches--;
+      decStitches -= numMagicRing;
+    }
   }
 
-  const appendRound = `Rnd ${
-    rndNum + 1
-  }: Dec Around. Repeat x${numMagicRing} [${decStitches}]`;
+  const appendRound = `Rnd ${rndNum + 1
+    }: Dec Around. Repeat x${numMagicRing} [${decStitches}]`;
   var creatingLiItem = document.createElement("li");
   creatingLiItem.textContent = appendRound;
   getUl.appendChild(creatingLiItem);
